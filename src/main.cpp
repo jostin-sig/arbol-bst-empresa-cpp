@@ -22,10 +22,26 @@ struct Nodo {
 class ArbolBST {
 private:
     Nodo* raiz;
+    Nodo* insertar(Nodo* nodo, Empleado emp) {
+        if (nodo == nullptr) {
+            return new Nodo(emp);
+        }
+
+        if (emp.codigo < nodo->dato.codigo) {
+            nodo->izquierdo = insertar(nodo->izquierdo, emp);
+        } else if (emp.codigo > nodo->dato.codigo) {
+            nodo->derecho = insertar(nodo->derecho, emp);
+        }
+
+        return nodo;
+    }
 
 public:
     ArbolBST() {
         raiz = nullptr;
+    }
+    void insertarEmpleado(Empleado emp) {
+        raiz = insertar(raiz, emp);
     }
 };
 
