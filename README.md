@@ -90,7 +90,9 @@ arbol.exe
 
 ### Recorridos
 ![Recorrido](capturas/Recorrido_inorden.png)
+
 ![Recorrido](capturas/preorden.png)
+
 ![Recorrido](capturas/postorden.png)
 
 
