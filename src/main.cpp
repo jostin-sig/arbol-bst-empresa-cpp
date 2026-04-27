@@ -72,6 +72,26 @@ private:
             mostrarEmpleado(nodo);
         }
     }
+    int altura(Nodo* nodo) {
+        if (nodo == nullptr) {
+            return 0;
+        }
+
+        int alturaIzq = altura(nodo->izquierdo);
+        int alturaDer = altura(nodo->derecho);
+
+        return 1 + max(alturaIzq, alturaDer);
+    }
+
+    void mostrarHojas(Nodo* nodo) {
+        if (nodo != nullptr) {
+            if (nodo->izquierdo == nullptr && nodo->derecho == nullptr) {
+                mostrarEmpleado(nodo);
+            }
+            mostrarHojas(nodo->izquierdo);
+            mostrarHojas(nodo->derecho);
+        }
+    }
 
 public:
     ArbolBST() {
@@ -90,6 +110,14 @@ public:
             cout << "\nEmpleado no encontrado.\n";
         }
     }
+    void mostrarRaiz() {
+        if (raiz != nullptr) {
+            cout << "\nRaiz del arbol:\n";
+            mostrarEmpleado(raiz);
+        } else {
+            cout << "El arbol esta vacio.\n";
+        }
+    }
     void mostrarInorden() {
         cout << "\nRecorrido Inorden:\n";
         inorden(raiz);
@@ -104,6 +132,14 @@ public:
         cout << "\nRecorrido Postorden:\n";
         postorden(raiz);
     }
+    void mostrarAltura() {
+        cout << "\nAltura del arbol: " << altura(raiz) << endl;
+    }
+
+    void mostrarNodosHoja() {
+        cout << "\nNodos hoja:\n";
+        mostrarHojas(raiz);
+    }
 };
 
 int main() {
@@ -113,9 +149,12 @@ int main() {
     arbol.insertarEmpleado({70, "Gerente Finanzas", "Gerente"});
     arbol.insertarEmpleado({20, "Empleado 1", "Hoja"});
     arbol.insertarEmpleado({40, "Empleado 2", "Hoja"});
+    arbol.insertarEmpleado({60, "Empleado 3", "Hoja"});
+    arbol.insertarEmpleado({80, "Empleado 4", "Hoja"});
 
+    arbol.mostrarRaiz();
     arbol.mostrarInorden();
-    arbol.mostrarPreorden();
-    arbol.mostrarPostorden();
+    arbol.mostrarAltura();
+    arbol.mostrarNodosHoja();
     return 0;
 }
