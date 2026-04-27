@@ -19,8 +19,18 @@ struct Nodo {
         derecho = nullptr;
     }
 };
+class ArbolBST {
+private:
+    Nodo* raiz;
+
+public:
+    ArbolBST() {
+        raiz = nullptr;
+    }
+};
 
 int main() {
-    cout << "Estructura inicial creada." << endl;
+    ArbolBST arbol;
+    cout << "Arbol BST creado correctamente." << endl;
     return 0;
 }
