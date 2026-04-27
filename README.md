@@ -5,7 +5,7 @@
 
 ---
 
-## 👤 Integrante
+## Integrante
 
 - [Sigcha Arcos Justin Israel]
 
@@ -80,10 +80,10 @@ arbol.exe
 ![Menu](capturas/menu.png)
 
 ### Inserción de empleados
-![Insertar](capturas/inserción_empleado.png)
+![Insertar](capturas/Inserción_empleados.png)
 
 ### Raiz
-![Raiz](capturas/Mostrar_raíz.png)
+![Raiz](capturas/Mostrar_raiz.png)
 
 ### Búsqueda de empleado
 ![Buscar](capturas/buscar_empleado.png)
