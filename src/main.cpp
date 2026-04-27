@@ -44,6 +44,34 @@ private:
         else
             return buscar(nodo->derecho, codigo);
     }
+    void mostrarEmpleado(Nodo* nodo) {
+        cout << "Codigo: " << nodo->dato.codigo
+             << " | Nombre: " << nodo->dato.nombre
+             << " | Cargo: " << nodo->dato.cargo << endl;
+    }
+    void inorden(Nodo* nodo) {
+        if (nodo != nullptr) {
+            inorden(nodo->izquierdo);
+            mostrarEmpleado(nodo);
+            inorden(nodo->derecho);
+        }
+    }
+
+    void preorden(Nodo* nodo) {
+        if (nodo != nullptr) {
+            mostrarEmpleado(nodo);
+            preorden(nodo->izquierdo);
+            preorden(nodo->derecho);
+        }
+    }
+
+    void postorden(Nodo* nodo) {
+        if (nodo != nullptr) {
+            postorden(nodo->izquierdo);
+            postorden(nodo->derecho);
+            mostrarEmpleado(nodo);
+        }
+    }
 
 public:
     ArbolBST() {
@@ -55,14 +83,26 @@ public:
     void buscarEmpleado(int codigo) {
         Nodo* resultado = buscar(raiz, codigo);
 
-        if (resultado != nullptr) {
+         if (resultado != nullptr) {
             cout << "\nEmpleado encontrado:\n";
-            cout << "Codigo: " << resultado->dato.codigo << endl;
-            cout << "Nombre: " << resultado->dato.nombre << endl;
-            cout << "Cargo : " << resultado->dato.cargo << endl;
+            mostrarEmpleado(resultado);
         } else {
             cout << "\nEmpleado no encontrado.\n";
         }
+    }
+    void mostrarInorden() {
+        cout << "\nRecorrido Inorden:\n";
+        inorden(raiz);
+    }
+
+    void mostrarPreorden() {
+        cout << "\nRecorrido Preorden:\n";
+        preorden(raiz);
+    }
+
+    void mostrarPostorden() {
+        cout << "\nRecorrido Postorden:\n";
+        postorden(raiz);
     }
 };
 
@@ -71,7 +111,11 @@ int main() {
     arbol.insertarEmpleado({50, "Empresa UTA", "Raiz"});
     arbol.insertarEmpleado({30, "Gerente Ventas", "Gerente"});
     arbol.insertarEmpleado({70, "Gerente Finanzas", "Gerente"});
+    arbol.insertarEmpleado({20, "Empleado 1", "Hoja"});
+    arbol.insertarEmpleado({40, "Empleado 2", "Hoja"});
 
-    arbol.buscarEmpleado(30);
+    arbol.mostrarInorden();
+    arbol.mostrarPreorden();
+    arbol.mostrarPostorden();
     return 0;
 }
