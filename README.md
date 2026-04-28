@@ -29,7 +29,7 @@ Implementar en C++ un Árbol Binario de Búsqueda (BST) para organizar empleados
 | Recorrido postorden | Recorre izquierda → derecha → raíz |
 | Calcular altura | Muestra el número de niveles del árbol |
 | Mostrar hojas | Muestra los nodos sin hijos |
-| Datos de ejemplo | Carga automáticamente 7 empleados del organigrama |
+
 
 ---
 
